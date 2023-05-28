@@ -1,3 +1,4 @@
+const { validationResult } = require('express-validator');
 const mongodb = require('../db/connect');
 const mongo = require('mongodb')
 
@@ -104,11 +105,11 @@ const updateById = async (req, res) => {
     const collection = db.db('worldbuilding').collection('settings');
 
     const id = String(req.params.id);
-    const contact = await collection.findOne({
+    const setting = await collection.findOne({
       _id: new mongo.ObjectId(id)
     });
 
-    if (!contact) {
+    if (!setting) {
       res.status(404).send('Setting not found');
       return;
     }

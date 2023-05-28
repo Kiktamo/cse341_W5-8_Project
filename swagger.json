@@ -25,6 +25,9 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
@@ -90,8 +93,14 @@
           "200": {
             "description": "OK"
           },
+          "400": {
+            "description": "Bad Request"
+          },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
@@ -103,36 +112,6 @@
             "in": "path",
             "required": true,
             "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "example": "any"
-                },
-                "genre": {
-                  "example": "any"
-                },
-                "magic": {
-                  "example": "any"
-                },
-                "technology": {
-                  "example": "any"
-                },
-                "species": {
-                  "example": "any"
-                },
-                "government": {
-                  "example": "any"
-                },
-                "summary": {
-                  "example": "any"
-                }
-              }
-            }
           }
         ],
         "responses": {
@@ -164,8 +143,14 @@
           "200": {
             "description": "OK"
           },
+          "400": {
+            "description": "Bad Request"
+          },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }

@@ -14,7 +14,7 @@ const insertValidation = [
 ];
 
 const IdValidation = [
-    param('id').notEmpty('ID is required').isMongoId('ID must be valid MongoID')
+    param('id').notEmpty().isMongoId().withMessage('ID must be valid MongoID')
 ];
 
 
