@@ -3,8 +3,9 @@ const app = express();
 const config = require('./config');
 const bodyParser = require('body-parser');
 const router = require('./routes/index');
-const MongoClient = require('mongodb').MongoClient;
 const mongodb = require('./db/connect');
+const session = require('express-session');
+const passport = require('./config/passport-setup');
 
 app.use(bodyParser.json())
 .use(function(req, res, next) {
@@ -13,10 +14,16 @@ app.use(bodyParser.json())
   res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
      next();
 })
+.use(session({
+  secret: config.session.secret,
+  resave: false,
+  saveUninitialized: false
+}))
+.use(passport.initialize())
+.use(passport.session())
 .use('/', router);
 
 const port = config.port;
-
 
 mongodb.initDb((err, mongodb) => {
   if (err) {
@@ -26,5 +33,3 @@ mongodb.initDb((err, mongodb) => {
     console.log(`Connected to DB and listening on ${port}`);
   }
 });
-
-
