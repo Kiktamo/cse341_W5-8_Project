@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const router = require('./routes/index');
 const mongodb = require('./db/connect');
 const session = require('express-session');
-const passport = require('./config/passport-setup');
+const passport = require('./middleware/passport');
 
 app.use(bodyParser.json())
 .use(function(req, res, next) {
@@ -15,7 +15,7 @@ app.use(bodyParser.json())
      next();
 })
 .use(session({
-  secret: config.session.secret,
+  secret: 'test',
   resave: false,
   saveUninitialized: false
 }))
