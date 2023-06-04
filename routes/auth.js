@@ -9,7 +9,7 @@ router.get('/auth/google', passport.authenticate('google', {
 router.get('/auth/google/callback', passport.authenticate('google', {
   failureRedirect: '/login'
 }), (req, res) => {
-  res.redirect('/');
+  res.redirect('/api-docs');
 });
 
 router.get('/logout', (req, res) => {
