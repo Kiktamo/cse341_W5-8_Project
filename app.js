@@ -6,6 +6,8 @@ const router = require('./routes/index');
 const mongodb = require('./db/connect');
 const session = require('express-session');
 const passport = require('./middleware/passport');
+const dotenv = require('dotenv');
+dotenv.config();
 
 app.use(bodyParser.json())
 .use(function(req, res, next) {
@@ -15,7 +17,7 @@ app.use(bodyParser.json())
      next();
 })
 .use(session({
-  secret: 'test',
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false
 }))
