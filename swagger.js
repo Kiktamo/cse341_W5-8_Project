@@ -5,8 +5,8 @@ const doc = {
     title: 'My Worldbuilding API',
     description: 'Worldbuilding API',
   },
-  host: 'localhost:8080',
-  schemes: ['http'],
+  host: 'worldbuilding-api.onrender.com',
+  schemes: ['https'],
 };
 
 const outputFile = './swagger.json';

@@ -1,6 +1,6 @@
 const { validationResult } = require('express-validator');
 const mongodb = require('../db/connect');
-const mongo = require('mongodb')
+const mongo = require('mongodb');
 
 const getAll = async (req, res) => {
   try {

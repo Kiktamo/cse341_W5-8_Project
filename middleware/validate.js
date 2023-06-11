@@ -17,8 +17,19 @@ const IdValidation = [
     param('id').notEmpty().isMongoId().withMessage('ID must be valid MongoID')
 ];
 
+const emailValidation = [
+    body('email').notEmpty().withMessage('Email is required').isEmail().withMessage('Email must be a valid email address'),
+];
+
+const passwordValidation = [
+    body('password').notEmpty().withMessage('Password is required').isLength({
+        min: 6
+    }).withMessage('Password must be at least 6 characters long'),
+];
 
 module.exports = {
     insertValidation,
     IdValidation,
+    emailValidation,
+    passwordValidation,
 };
